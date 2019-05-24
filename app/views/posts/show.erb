@@ -1,0 +1,14 @@
+<h1><%=@post.title%></h1><br>
+<p><%= @post.content %></p><br>
+<%= link_to @post.blogger.name, @post.blogger %><br>
+<%= link_to @post.destination.name, @post.destination %><br>
+<table>
+  <tr>
+    Likes: <%= @post.likes%>
+  </tr>
+</table>
+
+<%= form_tag("/liked", method: "get") do %>
+  <%= hidden_field_tag(:id, @post.id) %>
+  <%= submit_tag("Like") %>
+<% end %>
