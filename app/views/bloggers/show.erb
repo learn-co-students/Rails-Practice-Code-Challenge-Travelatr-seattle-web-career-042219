@@ -1,0 +1,9 @@
+<h1><%= "#{@blogger.name}'s Page"%></h1><br>
+<h3><%="Total Likes: #{@blogger.total_likes}" %></h3>
+<h3><%= "Featured Post: #{@blogger.most_liked}"%></h3>
+<h3>Top Five Destinations: </h3>
+<ol>
+  <%@blogger.top_destinations.each do |key, value|%>
+  <li><%= link_to "#{Destination.find(key).name} ----- Posts: #{value}", Destination.find(key)%></li>
+  <% end %>
+</ol>
