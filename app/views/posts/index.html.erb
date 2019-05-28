@@ -1,0 +1,12 @@
+<%@posts.each do |p|%><br>
+<table border= '1'>
+    <thead>
+        <th>Title </th>
+        <th>Blogger</th>
+    </thead>
+    <tbody>
+        <td><%=link_to p.title, post_path(p)%><br></td>
+        <td><%=p.blogger.name%></td>
+    </tbody>
+</table>
+<%end%><br>
