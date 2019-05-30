@@ -1,0 +1,6 @@
+<h1>View all Destinations</h1>
+
+<% @destinations.each do |destination| %>
+    <%= destination.name %>,<br>
+    <%= destination.country %><br><hr>
+<% end %>
