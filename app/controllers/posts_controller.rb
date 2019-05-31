@@ -9,14 +9,16 @@ class PostsController < ApplicationController
     end
 
     def new
-        @Post = Post.new
+        @post = Post.new
     end
 
     def create
         @post = Post.new(post_params)
         if @post.save
+            flash[:success] = "Post saved"
             redirect_to post_path(@post)
         else
+            flash[:error] = "Post was not saved"
             render :new
         end
     end
@@ -38,16 +40,17 @@ class PostsController < ApplicationController
     def destroy
         post_finder
         @post.destroy
+        flash[:success] = 'Post deleted successfully!'
         redirect_to posts_path
     end
 
     private
 
         def post_params
-            params.require(:post).create()
+            params.require(:post).permit(:title, :content, :likes, :blogger_id, :destination_id)
         end 
 
         def post_finder
-            @Post = Post.find(params[:id])
+            @post = Post.find(params[:id])
         end
 end

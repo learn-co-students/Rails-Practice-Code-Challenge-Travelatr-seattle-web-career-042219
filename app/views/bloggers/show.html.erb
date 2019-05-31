@@ -2,9 +2,14 @@
 <h3>Name: <%= @blogger.name %></h3>
 <h3>Age: <%= @blogger.age %></h3>
 <h3>Bio: <%= @blogger.bio %></h3>
-<h3>Total Likes: <%= @blogger.posts.total_likes %></h3>
+<h3>Total Likes on all Posts: <%= @blogger.posts.total_likes %></h3>
 <hr>
-<h3>Featured Post: <%= link_to @blogger.posts.featured_post, post_path(@blogger.posts.featured_post) %></h3>    
+<% if @blogger.posts.featured_post.nil? %>
+    <h3>Featured Post: </h3>
+<% else %>
+    <h3>Featured Post: <%= link_to @blogger.posts.featured_post, post_path(@blogger.posts.featured_post) %></h3>  
+<% end %>
+  
 <h3>Top 5 Destinations: </h3>
 <% @blogger.posts.top_5_destinations.each do |post| %>
     <h3><%= link_to post.destination.name.concat(", ", post.destination.country), post_path(post.destination) %></h3>

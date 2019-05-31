@@ -15,8 +15,10 @@ class BloggersController < ApplicationController
     def create
         @blogger = Blogger.new(blogger_params)
         if @blogger.save
-            redirect_to blogger_path(@blog)
+            flash[:success] = 'Blogger saved successfully!'
+            redirect_to blogger_path(@blogger)
         else
+            flash[:error] = 'Blogger did not save'
             render :new
         end
     end
@@ -28,7 +30,7 @@ class BloggersController < ApplicationController
     def update
         if @blogger.update(blogger_params)
             flash[:success] = 'Blogger updated successfully!'
-            redirect_to blogger_path(@blog)
+            redirect_to blogger_path(@blogger)
         else
             flash[:error] = 'Blogger did not update'
             render :edit
@@ -38,17 +40,14 @@ class BloggersController < ApplicationController
     def destroy
         blogger_finder
         @blogger.destroy
+        flash[:success] = 'Blogger deleted successfully!'
         redirect_to bloggers_path
-    end
-
-    def total_likes
-        
     end
 
     private
 
         def blogger_params
-            params.require(:blogger).create(:name, :age, :bio)
+            params.require(:blogger).permit(:name, :age, :bio)
         end 
 
         def blogger_finder
