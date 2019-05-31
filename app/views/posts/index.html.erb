@@ -1,0 +1,5 @@
+<h1>View all Posts</h1>
+<%  @posts.all do |post| %>
+    <%= post.title %><br>
+    <%= post.likes %><br><hr>
+<% end %>
