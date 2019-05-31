@@ -45,6 +45,12 @@ class PostsController < ApplicationController
         redirect_to posts_path
     end
 
+    def add_like
+        post_finder
+        byebug
+        @post.increment!(:likes, 1)
+    end
+
     private
 
         def post_params
