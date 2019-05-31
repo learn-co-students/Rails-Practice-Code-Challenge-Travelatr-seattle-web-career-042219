@@ -31,13 +31,3 @@ class Post < ApplicationRecord
     end
 
 end
-
-# Users should be able to create and edit a post
-# Users should be able to select a blogger from a dropdown menu
-# Users should be able to select a destination from a dropdown menu
-# A post should have a title
-# A post should have content longer than 100 characters
-# Users should be able to see a post's page with its title and content displayed. On this page, a user should see:
-# A link to the page of that post's author
-# A link to the page of that post's destination
-# A like button link that increases the like count for that post (should take the user to the same page)

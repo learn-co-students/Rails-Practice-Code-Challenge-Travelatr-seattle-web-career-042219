@@ -1,11 +1,11 @@
 <h1>View all Posts</h1>
-<%= link_to "Create a new Post", new_post_path %><br><hr>
+<h3><%= link_to "Create a new Post", new_post_path %><br></h3><hr>
 <% @posts.each do |post| %>
     <h3>Title: <%= post.title %></h3>
     <h3>Likes: <%= post.likes %></h3>
     <h3>Content: <%= post.content.remove(/\[|\]/) %></h3>
-    <%= link_to "View", post_path(post) %>
-    <%= link_to "Edit", edit_post_path(post) %>
+    <h3><%= link_to "View", post_path(post) %> 
+    <%= link_to "Edit", edit_post_path(post) %> 
     <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: 'Really delete?' } %>
-    <input name="_method" type="hidden" value="delete" /><hr>
+    <input name="_method" type="hidden" value="delete" /><hr></h3>
 <% end %>

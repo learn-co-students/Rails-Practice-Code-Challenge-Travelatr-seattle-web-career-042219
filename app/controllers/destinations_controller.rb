@@ -14,6 +14,7 @@ class DestinationsController < ApplicationController
 
     def create
         @destination = Destination.new(destination_params)
+        byebug
         if @destination.save
             flash[:success] = "Destination saved"
             redirect_to destination_path(@destination)
@@ -53,6 +54,6 @@ class DestinationsController < ApplicationController
         end
 
         def destination_params
-            params.require(:destination).permit(:name)
+            params.require(:destination).permit(:name, :country)
         end
 end

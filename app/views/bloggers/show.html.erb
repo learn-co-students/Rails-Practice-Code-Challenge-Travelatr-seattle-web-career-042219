@@ -3,16 +3,14 @@
 <h3>Age: <%= @blogger.age %></h3>
 <h3>Bio: <%= @blogger.bio %></h3>
 <hr>
+<h3>
+<%= link_to "Create a new Blogger", new_blogger_path %>
 <%= link_to "Edit", edit_blogger_path(@blogger) %>
 <%= link_to "Delete", blogger_path(@blogger), method: :delete, data: {confirm: 'Really delete?' } %>
-<input name="_method" type="hidden" value="delete" /><hr> 
+<input name="_method" type="hidden" value="delete" /><hr></h3>
 <h3>Total Likes on all Posts: <%= @blogger.posts.total_likes %></h3>
 <hr>
-<% if @blogger.posts.featured_post.nil? %>
-    <h3>Featured Post: </h3>
-<% else %>
-    <h3>Featured Post: <%= link_to @blogger.posts.featured_post, post_path(@blogger.posts.featured_post) %></h3>  
-<% end %>
+<h3>Featured Post: <%= @blogger.posts.featured_post.nil? ? "None" : link_to(@blogger.posts.featured_post, post_path(@blogger.posts.featured_post)) %> </h3>
   
 <h3>Top 5 Destinations: </h3>
 <% @blogger.posts.top_5_destinations.each do |post| %>
