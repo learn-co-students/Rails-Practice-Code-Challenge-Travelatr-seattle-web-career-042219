@@ -14,13 +14,12 @@ class DestinationsController < ApplicationController
 
     def create
         @destination = Destination.new(destination_params)
-        byebug
         if @destination.save
             flash[:success] = "Destination saved"
             redirect_to destination_path(@destination)
         else
             flash[:error] = 'Destination did not save'
-            redirect_to :new
+            render :new
         end
     end
 
@@ -35,7 +34,7 @@ class DestinationsController < ApplicationController
             redirect_to destination_path(@destination)
         else
             flash[:error] = 'Destination did not update'
-            redirect_to :edit
+            render :edit
         end
     end
 
