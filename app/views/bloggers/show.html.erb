@@ -2,6 +2,10 @@
 <h3>Name: <%= @blogger.name %></h3>
 <h3>Age: <%= @blogger.age %></h3>
 <h3>Bio: <%= @blogger.bio %></h3>
+<hr>
+<%= link_to "Edit", edit_blogger_path(@blogger) %>
+<%= link_to "Delete", blogger_path(@blogger), method: :delete, data: {confirm: 'Really delete?' } %>
+<input name="_method" type="hidden" value="delete" /><hr> 
 <h3>Total Likes on all Posts: <%= @blogger.posts.total_likes %></h3>
 <hr>
 <% if @blogger.posts.featured_post.nil? %>
@@ -21,3 +25,4 @@
     <p>Likes: <%= bp.likes %></p><hr>
 <% end %>
 <br>    
+

@@ -28,6 +28,7 @@ class BloggersController < ApplicationController
     end
 
     def update
+        blogger_finder
         if @blogger.update(blogger_params)
             flash[:success] = 'Blogger updated successfully!'
             redirect_to blogger_path(@blogger)

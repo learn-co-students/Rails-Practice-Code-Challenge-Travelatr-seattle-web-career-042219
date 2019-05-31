@@ -1,6 +1,9 @@
 <h1>View all Destinations</h1>
-
+<%= link_to "Create a new Destination", new_destination_path %><br><hr>
 <% @destinations.each do |destination| %>
-    <%= destination.name %>,<br>
-    <%= destination.country %><br><hr>
+    <%= destination.name %>, <%= destination.country %><br>
+    <%= link_to "View", destination_path(destination) %>
+    <%= link_to "Edit", edit_destination_path(destination) %>
+    <%= link_to "Delete", destination_path(destination), method: :delete, data: {confirm: 'Really delete?' } %>
+    <input name="_method" type="hidden" value="delete" /><hr>
 <% end %>

@@ -1,0 +1,10 @@
+<%if @blogger.errors.any? %>
+  <div id="error-explanation">
+     <p><%= pluralize(@blogger.errors.full_messages.size, 'error') %>: </p>
+      <ul class = "field_with_errors">
+       <% @blogger.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>    
+     </ul>
+   </div>
+ <% end %>

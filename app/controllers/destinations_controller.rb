@@ -9,15 +9,16 @@ class DestinationsController < ApplicationController
     end
 
     def new
-        Destination.new
+        @destination  = Destination.new
     end
 
     def create
-        @destination = Destination.new
+        @destination = Destination.new(destination_params)
         if @destination.save
             flash[:success] = "Destination saved"
             redirect_to destination_path(@destination)
         else
+            flash[:error] = 'Destination did not save'
             redirect_to :new
         end
     end
@@ -28,10 +29,11 @@ class DestinationsController < ApplicationController
 
     def update
         destination_finder
-        if @destination.update
+        if @destination.update(destination_params)
             flash[:success] = "Destination updated"
             redirect_to destination_path(@destination)
         else
+            flash[:error] = 'Destination did not update'
             redirect_to :edit
         end
     end

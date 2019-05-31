@@ -9,6 +9,11 @@
   </head>
 
   <body>
+  <div id ="navbar">
+  <h3><%= link_to "Bloggers", bloggers_path %>  |
+  <%= link_to "Posts", posts_path %>  |
+  <%= link_to "Destinations", destinations_path %></h3>
+  </div>
     <%= yield %>
   </body>
 </html>
