@@ -30,8 +30,4 @@ class Post < ApplicationRecord
         Blogger.average("age").to_i
     end
 
-    # def self.add_like
-    #     Post.
-    # end
-
 end
