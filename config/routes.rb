@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :bloggers
   resources :destinations
   resources :posts
-  post 'likes', to: 'posts#add_like'
+  post '/likes', to: 'posts#add_like'
 end
