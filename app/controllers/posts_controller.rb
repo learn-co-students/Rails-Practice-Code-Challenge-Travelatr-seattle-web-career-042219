@@ -58,6 +58,7 @@ class PostsController < ApplicationController
         end 
 
         def post_finder
+
             @post = Post.find(params[:id])
         end
 end

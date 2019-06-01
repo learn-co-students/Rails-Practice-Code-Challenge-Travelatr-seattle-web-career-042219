@@ -30,4 +30,8 @@ class Post < ApplicationRecord
         Blogger.average("age").to_i
     end
 
+    def self.add_like
+        Post.increment!(:likes, 1)
+    end
+
 end
