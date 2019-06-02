@@ -40,8 +40,11 @@ class PostsController < ApplicationController
 
     def destroy
         post_finder
-        @post.destroy
-        flash[:success] = 'Post deleted successfully!'
+        if @post.destroy
+            flash[:success] = 'Post deleted successfully!'
+        else 
+            flash[:error] = 'Post did not delete'
+        end
         redirect_to posts_path
     end
 
@@ -58,7 +61,6 @@ class PostsController < ApplicationController
         end 
 
         def post_finder
-
             @post = Post.find(params[:id])
         end
 end
