@@ -19,6 +19,7 @@ class PostsController < ApplicationController
             redirect_to post_path(@post)
         else
             flash[:error] = "Post was not saved"
+            puts @post.errors.full_messages
             render :new
         end
     end
@@ -34,6 +35,7 @@ class PostsController < ApplicationController
             redirect_to post_path(@post)
         else
             flash[:error] = 'Post did not update'
+            puts @post.errors.full_messages
             render :edit
         end
     end
@@ -44,6 +46,7 @@ class PostsController < ApplicationController
             flash[:success] = 'Post deleted successfully!'
         else 
             flash[:error] = 'Post did not delete'
+            puts @post.errors.full_messages
         end
         redirect_to posts_path
     end

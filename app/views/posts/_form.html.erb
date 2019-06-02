@@ -8,10 +8,6 @@
         <%= f.text_area :content %><br>
     </div>
     <div class="field">
-        <%= f.label :likes %><br>
-        <%= f.number_field :likes %><br>
-    </div>
-       <div class="field">
         <%= f.label :blogger, "Blogger" %><br>
         <%= f.collection_select :blogger_id, Blogger.all, :id, :name, prompt: true %><br>
     </div>
@@ -19,6 +15,10 @@
         <%= f.label :destination, "Destination" %><br>
         <%= f.collection_select :destination_id, Destination.all, :id, :name, prompt: true %><br>
         <%#= f.collection_select :destination_id, Destination.all.collect {|c| [ c.name, c.country ] }, :id, :name, prompt: true %>
+    </div>
+        <div class="field">
+        <%= f.label :likes %><br>
+        <%= f.number_field :likes %><br>
     </div>
     <br>
     <%= f.submit %>
