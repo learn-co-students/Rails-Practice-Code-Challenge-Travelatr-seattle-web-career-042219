@@ -13,8 +13,7 @@
     </div>
        <div class="field">
         <%= f.label :destination, "Destination" %><br>
-        <%= f.collection_select :destination_id, Destination.all, :id, :name, prompt: true %><br>
-        <%#= f.collection_select :destination_id, Destination.all.collect {|c| [ c.name, c.country ] }, :id, :name, prompt: true %>
+        <%= f.collection_select :destination_id, Destination.all, :id, :full_name, prompt: true %><br>
     </div>
         <div class="field">
         <%= f.label :likes %><br>

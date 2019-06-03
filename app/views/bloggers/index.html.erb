@@ -1,5 +1,5 @@
 <h1>View all Bloggers</h1>
-<h3><%= link_to "Create a new Blogger", new_blogger_path %><br></h3><hr>
+<h3><%= link_to "Create a new Blogger", new_blogger_path %></h3><br><hr>
 <% @bloggers.each do |blogger| %>
     <h3>Name: <%= blogger.name %></h3>
     <h3>Age: <%= blogger.age %></h3> 

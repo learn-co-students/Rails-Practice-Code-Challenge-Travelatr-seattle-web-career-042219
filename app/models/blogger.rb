@@ -7,3 +7,5 @@ class Blogger < ApplicationRecord
     validates :bio, length: {minimum: 30 }
 
 end
+
+    

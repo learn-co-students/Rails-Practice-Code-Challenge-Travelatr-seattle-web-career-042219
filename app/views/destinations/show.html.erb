@@ -9,7 +9,7 @@
 <% end %>
 <h3>Featured post: <%= @destination.posts.featured_post.nil? ? "None" : link_to(@destination.posts.featured_post, post_path(@destination.posts.featured_post)) %></h3>
 
-<h3>Average age of bloggers that wrote about this destination: <%= @destination.posts.average_age %></h3>
+<h3>Average age of bloggers that wrote about this destination: <%= @destination.average_age %></h3>
 <hr>
 <h3><%= link_to "Create a new Destination", new_destination_path %> 
 <%= link_to "Edit", edit_destination_path(@destination) %> 

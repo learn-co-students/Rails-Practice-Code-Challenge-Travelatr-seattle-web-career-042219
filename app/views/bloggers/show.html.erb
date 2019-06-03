@@ -8,11 +8,11 @@
 <%= link_to "Edit", edit_blogger_path(@blogger) %>
 <%= link_to "Delete", blogger_path(@blogger), method: :delete, data: {confirm: 'Really delete?' } %>
 <input name="_method" type="hidden" value="delete" /></h3><hr>
-<h3>Total Likes on all Posts: <%= @blogger.posts.total_likes %></h3>
+<h3>Total Likes on tis Blogger's Posts: <%= @blogger.posts.total_likes %></h3>
 <hr>
 <h3>Featured Post: <%= @blogger.posts.featured_post.nil? ? "None" : link_to(@blogger.posts.featured_post, post_path(@blogger.posts.featured_post)) %> </h3>
 <hr>
-<h3>Top 5 Destinations: </h3>
+<h3>Top 5 Most Written About Destinations: </h3>
 <% @blogger.posts.top_5_destinations.each do |post| %>
     <h3><%= link_to post.destination.name.concat(", ", post.destination.country), post_path(post.destination) %></h3>
 <% end %>

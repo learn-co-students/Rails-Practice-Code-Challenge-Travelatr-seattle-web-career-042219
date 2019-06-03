@@ -53,7 +53,7 @@ class PostsController < ApplicationController
 
     def add_like
         post_finder
-        @post.increment!(:likes, 1)
+        @post.add_like
         redirect_to post_path(@post)
     end
 
