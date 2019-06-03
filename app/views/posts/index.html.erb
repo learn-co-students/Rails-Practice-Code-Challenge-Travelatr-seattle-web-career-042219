@@ -1,5 +1,5 @@
 <h1>View all Posts</h1>
-<h3><%= link_to "Create a new Post", new_post_path %><br></h3><hr>
+<h3><%= link_to "Create a new Post", new_post_path %></h3><br><hr>
 <% @posts.each do |post| %>
     <h3>Title: <%= post.title %></h3>
     <h3>Likes: <%= post.likes %></h3>
