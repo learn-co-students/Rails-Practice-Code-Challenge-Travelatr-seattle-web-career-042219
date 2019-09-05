@@ -53,12 +53,8 @@ class PostsController < ApplicationController
 
     def add_like
         post_finder
-<<<<<<< HEAD
-        @post.increment!(:likes, 1)
-=======
         @post.add_like
         redirect_to post_path(@post)
->>>>>>> 9787840189ad17e0cedb8e70b28ca1e9dbfc8451
     end
 
     private
