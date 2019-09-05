@@ -24,13 +24,11 @@ class PostsController < ApplicationController
     end
 
     def edit
-        byebug
         post_finder
     end
 
     def update
         post_finder
-        byebug
         if @post.update(post_params)
             flash[:success] = 'Post updated successfully!'
             redirect_to post_path(@post)
@@ -50,7 +48,6 @@ class PostsController < ApplicationController
     def add_like
         byebug
         post_finder
-        byebug
         @post.increment!(:likes, 1)
     end
 
@@ -61,7 +58,6 @@ class PostsController < ApplicationController
         end 
 
         def post_finder
-            byebug
             @post = Post.find(params[:id])
         end
 end
