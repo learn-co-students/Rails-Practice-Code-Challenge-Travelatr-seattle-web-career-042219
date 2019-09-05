@@ -1,13 +1,3 @@
-<%if @destination.errors.any? %>
-  <div id="error-explanation">
-     <p><%= pluralize(@destination.errors.full_messages.size, 'error') %>: </p>
-      <ul class = "field_with_errors">
-       <% @destination.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>    
-     </ul>
-   </div>
- <% end %>
 <%= form_for(@destination) do |f| %>
      <div class="field">
         <%= f.label :name %><br>

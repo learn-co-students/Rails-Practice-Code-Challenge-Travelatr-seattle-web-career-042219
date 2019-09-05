@@ -12,7 +12,7 @@ class Post < ApplicationRecord
 
      # A link to that blogger's featured post (the post with the most likes)
     def self.featured_post
-         Post.order(likes: :desc).distinct.first ? Post.order(likes: :desc).distinct.first.title : nil
+        Post.order(likes: :desc).distinct.first ? Post.order(likes: :desc).distinct.first.title : nil
     end
 
     # A list of that user's top 5 most written about destinations (the destinations with the most posts)
@@ -25,9 +25,8 @@ class Post < ApplicationRecord
         Post.order(created_at: :desc).limit(5)
     end
 
-    # The average age of all unique bloggers who have written about this destination
-    def self.average_age
-        Blogger.average("age").to_i
+    def add_like
+        self.increment!(:likes, 1)
     end
 
 end

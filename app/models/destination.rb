@@ -2,10 +2,13 @@ class Destination < ApplicationRecord
     has_many :posts
     has_many :bloggers, through: :posts
 
-
-    def self.full_name
-        byebug
-        self.full_name = [self.Destination.name, self.Destination.country].join(", ")
-        byebug
+    # The average age of all unique bloggers who have written about this destination
+    def average_age
+        self.bloggers.average("age").to_i
     end
+
+    def full_name
+        self.name.concat(", ", self.country)
+    end
+
 end
